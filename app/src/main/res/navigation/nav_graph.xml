@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home">
+    <fragment
+        android:id="@+id/home"
+        android:name="com.exxpplore.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_explore2"
+            app:destination="@id/explore" />
+        <action
+            android:id="@+id/action_home2_to_shop"
+            app:destination="@id/shop" />
+        <action
+            android:id="@+id/action_home2_to_settings"
+            app:destination="@id/settings" />
+    </fragment>
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.exxpplore.Settings"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settings_to_shop"
+            app:destination="@id/shop" />
+        <action
+            android:id="@+id/action_settings_to_home2"
+            app:destination="@id/home" />
+        <action
+            android:id="@+id/action_settings_to_explore2"
+            app:destination="@id/explore" />
+    </fragment>
+    <fragment
+        android:id="@+id/shop"
+        android:name="com.exxpplore.shop"
+        android:label="fragment_shop"
+        tools:layout="@layout/fragment_shop" >
+        <action
+            android:id="@+id/action_shop_to_home2"
+            app:destination="@id/home" />
+        <action
+            android:id="@+id/action_shop_to_settings"
+            app:destination="@id/settings" />
+        <action
+            android:id="@+id/action_shop_to_explore2"
+            app:destination="@id/explore" />
+    </fragment>
+    <fragment
+        android:id="@+id/explore"
+        android:name="com.exxpplore.Explore"
+        android:label="fragment_explore"
+        tools:layout="@layout/fragment_explore" >
+        <action
+            android:id="@+id/action_explore2_to_settings"
+            app:destination="@id/settings" />
+        <action
+            android:id="@+id/action_explore2_to_shop"
+            app:destination="@id/shop" />
+    </fragment>
 </navigation>
