@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.tabs.TabLayout
+import java.io.File
 
 class Home : Fragment() {
 
@@ -19,9 +20,13 @@ class Home : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         val tabLayout = view.findViewById<TabLayout>(R.id.tabLayout2)
-        tabLayout.addTab(
-            tabLayout.newTab().setText("Tab")
-        )
+
+        val path: File = requireActivity().applicationContext.filesDir
+        File(path, "places.txt").forEachLine {
+            tabLayout.addTab(
+                tabLayout.newTab().setText(it.split(',')[0])
+            )
+        }
 
         return view
     }
